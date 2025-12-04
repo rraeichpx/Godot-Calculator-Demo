@@ -1,0 +1,121 @@
+[gd_scene load_steps=14 format=3 uid="uid://dbhknckg5eqjh"]
+
+[ext_resource type="FontFile" uid="uid://d4ain208yfeyi" path="res://Assets/fonts/ShareTech-Regular.ttf" id="1_71hhk"]
+[ext_resource type="Texture2D" uid="uid://b2021u3ua2u8v" path="res://Assets/background.jpg" id="1_661cj"]
+[ext_resource type="Script" uid="uid://7csx0nl1br7g" path="res://Scripts/main.gd" id="1_d7y3u"]
+[ext_resource type="Script" uid="uid://dw2ktudl34tnf" path="res://Scripts/buttons_calculate.gd" id="1_ndofk"]
+[ext_resource type="Script" uid="uid://df7ug17iqq6sr" path="res://Scripts/grid_numbers.gd" id="4_4chnv"]
+[ext_resource type="Script" uid="uid://cfegnyp6t6xbb" path="res://Scripts/grid_operators.gd" id="5_ifdy3"]
+[ext_resource type="Script" uid="uid://dux40v8je3oa" path="res://Scripts/display.gd" id="6_y1vnr"]
+[ext_resource type="AudioStream" uid="uid://bqkhkt5kukkk1" path="res://Assets/audio/click.wav" id="8_4ub41"]
+[ext_resource type="Script" uid="uid://dqfdy5oqmlahb" path="res://Scripts/click_player.gd" id="8_sw5fn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_skqqb"]
+bg_color = Color(0.09700716, 0.09700739, 0.088088445, 1)
+border_color = Color(0.9689056, 0.69007, 0.9559149, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndofk"]
+bg_color = Color(0.1645872, 0.25679496, 0.3996449, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71hhk"]
+bg_color = Color(0.3458336, 0.46109718, 0.2569007, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ifdy3"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d7y3u")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.08616028, 0.13068873, 0.106871076, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_661cj")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 846.0
+offset_right = 394.0
+offset_bottom = 898.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_71hhk")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_skqqb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ndofk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_71hhk")
+text = "BUNA TEST BAS
+"
+script = ExtResource("1_ndofk")
+
+[node name="NumbersGrid" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 484.0
+offset_right = 532.0
+offset_bottom = 804.0
+columns = 3
+script = ExtResource("4_4chnv")
+
+[node name="OperatorsGrid" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 358.0
+offset_right = 530.0
+offset_bottom = 446.0
+columns = 3
+script = ExtResource("5_ifdy3")
+
+[node name="Display" type="Label" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 92.0
+offset_right = 528.0
+offset_bottom = 194.0
+theme_override_fonts/font = ExtResource("1_71hhk")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ifdy3")
+text = "757+856"
+horizontal_alignment = 2
+vertical_alignment = 1
+clip_text = true
+script = ExtResource("6_y1vnr")
+
+[node name="ClickPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_4ub41")
+script = ExtResource("8_sw5fn")
